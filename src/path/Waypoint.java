@@ -17,9 +17,13 @@ public class Waypoint {
         angular_velocity = 0;
     }
 
-    public void setAngularVelocity(double headingI, double headingF, double timeI, double timeF) {
-        double calc = (headingF - headingI) / (timeF - timeI);
+    public void setAngularVelocity(double headingI, double headingF, double deltaTime) {
+        double calc = (headingF - headingI) / (deltaTime);
         this.angular_velocity = calc;
+    }
+
+    public void setAngularVelocity(double value) {
+        this.angular_velocity = value;
     }
 
     public double getTime() {
@@ -44,5 +48,10 @@ public class Waypoint {
 
     public double getAngularVelocity() {
         return angular_velocity;
+    }
+
+    @Override
+    public String toString() {
+        return "dt: "+dt+", x: "+x+", y: "+y+", velocity: "+velocity+", heading: "+heading+", angularVel: "+angular_velocity;
     }
 }
