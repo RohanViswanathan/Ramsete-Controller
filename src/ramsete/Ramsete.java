@@ -1,6 +1,8 @@
-package path;
+package ramsete;
 
-public class Control {
+import path.Waypoint;
+
+public class Ramsete {
 
     public double calculateVelocity(double x, double y, double theta, Waypoint waypoint, double b, double g) {
         double k = (2*g)*(Math.sqrt((Math.pow(waypoint.getAngularVelocity(), 2) + (b*Math.pow(waypoint.getVelocity(), 2)))));
@@ -14,6 +16,4 @@ public class Control {
         double w = (waypoint.getAngularVelocity()) + (b*waypoint.getVelocity()*sinc*(((waypoint.getY()-y) * Math.cos(theta)) - ((waypoint.getX()-x) * Math.sin(theta)))) + (k*(waypoint.getHeading()-theta));
         return w;
     }
-
 }
-

@@ -7,15 +7,10 @@ import java.io.IOException;
 
 public class PathGenerator {
     ArrayList<Waypoint> waypoints = new ArrayList<>();
-    private String csvFile;
     private String line = "";
     private String splitBy = ",";
 
-    public PathGenerator(String csvFile) {
-        this.csvFile = csvFile;
-    }
-
-    public ArrayList<Waypoint> generatePath() {
+    public ArrayList<Waypoint> generatePath(String csvFile) {
         double startIndex = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             while ((line = br.readLine()) != null) {
@@ -49,8 +44,8 @@ public class PathGenerator {
     }
 
     public static void main(String[] args) {
-        PathGenerator path = new PathGenerator("/Users/rohanviswanathan/Desktop/test.csv");
-        ArrayList<Waypoint> w = path.generatePath();
+        PathGenerator path = new PathGenerator();
+        ArrayList<Waypoint> w = path.generatePath("/Users/rohanviswanathan/Desktop/test.csv");
         for (int i = 0; i < w.size(); i++) {
             System.out.println(w.get(i));
         }

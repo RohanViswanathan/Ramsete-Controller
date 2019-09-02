@@ -33,6 +33,10 @@ public class PoseEstimator {
         return pose.getTranslation().getY();
     }
 
+    public double getPoseTheta() {
+        return pose.getRotation().degrees();
+    }
+
     public Twist getVelocity() {
         return velocity;
     }
